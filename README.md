@@ -18,4 +18,3 @@
 - Other
   - VScode_markdown: markdownで議事録を取る際に使えるVScodeのコードスニペットについて
   - Web Interface: クライアントとサーバの通信について
-  
