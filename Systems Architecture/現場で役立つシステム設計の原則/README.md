@@ -51,5 +51,5 @@ Money discounted = basePrise.minus(1000); // 金額を割引したい場合、�
 Money option = new Money(1000) // 別の値が必要になったら新しいMoneyオブジェクトを作成する
 ```
 
-★参考文献
+★参考文献  
 [値オブジェクトとコレクションオブジェクト](http://blog.sojiro.me/blog/2017/08/25/value-object-and-collection-object/)
