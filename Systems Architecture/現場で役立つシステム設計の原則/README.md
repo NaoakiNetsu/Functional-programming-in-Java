@@ -134,3 +134,61 @@ private int childFee() {
 と書ける。こうすることで元々のif分はメソッドを呼び出すだけになり、メソッド名を見るだけで**何をやっているかが明確となる**。  
 また、判断や処理の方法・基準が変わったとしても、メソッドだけを修正すればよいので、クラス内の色々なところで同じような判断、処理を行っている場合でも修正が容易である。
 
+---
+
+#### else句をなくして条件分岐を単純に
+
+以下は、「子供」「大人」「シニア」で別料金にするロジックをelse句を使って書いた例である。
+
+```java
+// 悪い例
+
+// Yen型(お金)オブジェクトを返却するメソッド
+Yen fee() {
+    Yen result;
+    
+    if (isChild()) {
+        result = childFee();
+    } else if (isSenior()) {
+        result = seniorFee();
+    } else {
+        result = adultFee();
+    }
+    
+    return result
+}
+```
+
+↑の例からローカル変数の定義とローカル変数への代入処理を省くと、
+
+```java
+// Yen型(お金)オブジェクトを返却するメソッド
+Yen fee() {
+    if (isChild()) {
+        return childFee();
+    } else if (isSenior()) {
+        return seniorFee();
+    } else {
+        return adultFee();
+    }
+}
+```
+
+return文で処理を抜けるのでif文以降の処理を書かずに済み、コードが少しシンプルになった。これが**早期リターン**と呼ばれる記述方法である。
+
+早期リターンを使うのであれば、そもそもelse文にする必要はない（nullが返却されることがない）ので、
+
+```java
+// 良い例
+
+// Yen型(お金)オブジェクトを返却するメソッド
+Yen fee() {
+    if (isChild()) return childFee(); // 分岐後の処理が1行だけの場合{}は省略できる。これはjava 7以前からずっとだと思う。
+    if (isSenior()) return seniorFee();
+    return adultFee();
+}
+```
+
+かなりすっきりしたコードになった。
+
+else句を使わずに早期リターンするこの書き方は**ガード節**と呼ばれ、有名なリファクタリング手法である。
