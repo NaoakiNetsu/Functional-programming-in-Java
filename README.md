@@ -18,4 +18,7 @@
 - Other
   - VScode_markdown: markdownで議事録を取る際に使えるVScodeのコードスニペットについて
   - Web Interface: クライアントとサーバの通信について
+  
+- Systems Architecture
+  - 現場で役立つシステム設計の原則: 【**仕掛**】書籍「現場で役立つシステム設計の原則」を要約
 
