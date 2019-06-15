@@ -5,6 +5,9 @@
 - Angular
   - Directive: 【**仕掛**】AngularJSのディレクティブについてのまとめ
   - Two-Way Data Binding：AngularJSの双方向データバインディングについてのまとめ
+  
+- Design
+  - 誰のためのデザイン?: 書籍「誰のためのデザイン?」の簡単な振り返り
 
 - Functional-programming-in-Java：関数型プログラミングがJavaに導入されるまでの経緯と使い方のまとめ
 
