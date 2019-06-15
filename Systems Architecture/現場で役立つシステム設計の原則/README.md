@@ -311,6 +311,7 @@ class Charge {
 
 ```java
 // Fee型でAdultFeeオブジェクトを生成
+// これが所謂「代入互換性」であり、子クラスのオブジェクトは親クラスの型で生成することができる
 Fee fee = new AdultFee();
 
 // AdultFeeオブジェクトを引数に渡してchargeオブジェクトを生成
