@@ -309,3 +309,16 @@ class Charge {
 
 書籍では、「Chargeクラスのオブジェクトを生成する時に、コンストラクタにFee型のどのクラスのオブジェクトを渡すかによって、Chargeクラスの振る舞いは変わります。コンストラクタに渡すオブジェクトがAdultFee型であれば大人料金を計算します。ChildFee型であれば子供料金を計算します。」と書いてあるが、この記述をプログラムに起こすと以下のようになる。
 
+```java
+// Fee型でAdultFeeオブジェクトを生成
+Fee fee = new AdultFee();
+
+// AdultFeeオブジェクトを引数に渡してchargeオブジェクトを生成
+Charge charge = new charge(fee);
+    
+// ここで呼ばれるyenメソッドはAdultFeeクラスで定義されたyenメソッド
+Yen yen = charge.yen();
+
+// 100が出力される
+System.out.println(yen);
+```
