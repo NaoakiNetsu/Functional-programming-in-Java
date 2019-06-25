@@ -327,3 +327,97 @@ System.out.println(yen);
 以上より、開発者が区分の違いを意識せずとも、返却される金額はchargeオブジェクト生成時に渡されるオブジェクトによって決められることがわかる。
 
 ※そもそも代入互換性や継承、オーバーライド、ポリモーフィズムについて理解が足りない場合は「[スッキリわかるJava入門](https://www.amazon.co.jp/%E3%82%B9%E3%83%83%E3%82%AD%E3%83%AA%E3%82%8F%E3%81%8B%E3%82%8BJava%E5%85%A5%E9%96%80-%E7%AC%AC2%E7%89%88-%E3%82%B9%E3%83%83%E3%82%AD%E3%83%AA%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E4%B8%AD%E5%B1%B1-%E6%B8%85%E5%96%AC/dp/484433638X/ref=asc_df_484433638X/?tag=jpgo-22&linkCode=df0&hvadid=295704876452&hvpos=1o1&hvnetw=g&hvrand=17080245801697300971&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9053345&hvtargid=pla-526397172864&psc=1&th=1&psc=1)」の13章あたりを読むのが個人的にはおすすめ。あとは「[達人プログラマーを目指して](https://ryoasai.hatenadiary.org/)」というブログも参考になる記事がたくさんある。
+
+#### ③列挙型「enum」を用いた区分オブジェクトの導入
+①②を通して既に分岐処理を記述しないで記載できているのだが、より一覧性をあげるために列挙型「enum」を用いる。
+
+さっそく書籍と同様、簡単に列挙型の使い方を説明すると、
+
+```java
+// 料金区分を定義する
+enum FeeType {
+    adult,
+    child,
+    sinior
+}
+
+// 区分を使う側
+FeeType fee = FeeType.adult;
+        
+System.out.println(fee); // adultと表示される
+```
+
+実は列挙型enumはクラスなので、メソッドやコンストラクタも定義できる。
+
+```java
+// Globeを定義する ※別に世代ではないけど前に調べたときに参考にしたサイトの名残。そのサイトは存在しないが。
+enum Globe {
+    MARC("酒井龍一"),
+    KEIKO("山田桂子"),
+    TK("小室哲哉");
+ 
+    // フィールド変数
+    private String label;
+ 
+    // コンストラクタ
+    // ※コンストラクタのアクセス修飾子はprivateのみ使用可
+    // 他クラスからインスタンスを生成させないシングルトンパターンな作り
+    // そもそもenumはシングルトンが保証されているから明示的にprivate修飾子を書く必要はなかった気がする
+    private Globe(String label) {
+        this.label = label;
+    }
+ 
+    // 名称取得メソッド
+    public String getLabel() {
+        return this.label;
+    }
+}
+
+// 区分を使う側
+system.out.println(Globe.TK.getLabel()); // 小室哲哉と表示される
+```
+
+Globe.TKが呼ばれた時点で、列挙定数TKの名称"小室哲哉"を引数にしてコンストラクタが呼ばれフィールド定数に"小室哲哉"が定義されてインスタンス化される。あとはそのインスタンスからgetLabel()メソッドを呼んでやればフィールド定数の"小室哲哉"がリターンされる。
+
+したがって、②のポリモーフィズムの考え方にここまで説明した列挙型enumを組み合わせると、
+
+```java
+// 料金区分を定義す
+enum FeeType {
+    adult( new AdultFee() ), // AdultFeeインスタンスをコンストラクタに渡すように定義
+    child( new ChildFee() ),
+    sinior( new SiniorFee() )
+
+    private Fee fee;
+    
+    private FeeType(Fee fee) { // 上の定義にもあるようにFee型のインスタンスが渡されるようなコンストラクタにする
+        this.fee = fee;
+    }
+    
+    public Yen yen() {
+        // 各料金区分クラスで定義されたyenメソッドを実行した結果を返却
+        return fee.yen();
+    }
+    
+    public String getLabel() {
+        // 各料金区分クラスで定義されたlabelメソッドを実行した結果を返却
+        return fee.label();
+    }
+}
+
+// 料金を計算するためのメソッドを定義
+Yen feeFor(String feeTypeName) {
+    // 引数として渡されてきた値で列挙型FeeTypeから定数を呼び出す
+    FeeType feeType = FeeType.valueOf(feeTypeName);
+    
+    // 上で生成されたインスタンスからyenメソッドを呼び出して返却
+    return feeType.yen();
+}
+
+// feeForメソッドを呼び出す側
+system.out.println(feeFor("adult")); // 100が出力される
+```
+
+使う側はfeeForメソッドの引数に料金区分と同じ文字列を渡すだけでそれぞれの金額を取得することができる。
+
+料金区分にはどんなものがあるのか列挙型FeeTypeの定義を見れば一発で理解でき、それぞれの区分のロジックはそれぞれのクラスで定義されており、非常に一覧性とメンテンナンス性が高いプログラムになっていると考えることができる。
