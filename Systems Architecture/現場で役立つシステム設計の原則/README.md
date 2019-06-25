@@ -325,3 +325,5 @@ System.out.println(yen);
 ```
 
 以上より、開発者が区分の違いを意識せずとも、返却される金額はchargeオブジェクト生成時に渡されるオブジェクトによって決められることがわかる。
+
+※そもそも代入互換性や継承、オーバーライド、ポリモーフィズムについて理解が足りない場合は「[スッキリわかるJava入門](https://www.amazon.co.jp/%E3%82%B9%E3%83%83%E3%82%AD%E3%83%AA%E3%82%8F%E3%81%8B%E3%82%8BJava%E5%85%A5%E9%96%80-%E7%AC%AC2%E7%89%88-%E3%82%B9%E3%83%83%E3%82%AD%E3%83%AA%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA-%E4%B8%AD%E5%B1%B1-%E6%B8%85%E5%96%AC/dp/484433638X/ref=asc_df_484433638X/?tag=jpgo-22&linkCode=df0&hvadid=295704876452&hvpos=1o1&hvnetw=g&hvrand=17080245801697300971&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9053345&hvtargid=pla-526397172864&psc=1&th=1&psc=1)」の13章あたりを読むのが個人的にはおすすめ。あとは「[達人プログラマーを目指して](https://ryoasai.hatenadiary.org/)」というブログも参考になる記事がたくさんある。
