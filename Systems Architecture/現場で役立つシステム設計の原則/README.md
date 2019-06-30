@@ -429,7 +429,7 @@ system.out.println(feeFor("adult")); // 100が出力される
 単なる定数ではなくロジックを含んだオブジェクトとして定義することが肝。
 
 ※↑に出てきたSingletonについては別で簡単にまとめている  
-https://github.com/NaoakiNetsu/In-house-study/blob/master/Object-oriented%20programming/Singleton/README.md
+[Singletonについて](https://github.com/NaoakiNetsu/In-house-study/blob/master/Object-oriented%20programming/Singleton/README.md)
 
 ### 区分ごとの業務ロジックを区分オブジェクトで分析し整理する_p. 61付近
 
