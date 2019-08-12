@@ -12,5 +12,5 @@ Elastic IP はAWSが提供するEC2インスタンスに関連付けることが
 EC2インスタンスは起動時にパブリックIPアドレスが付与されるが、これは起動するたびにアドレスが代わるため、固定化するためにEIPを用いる。
 
 ★参考文献  
-[1] [【公式】Elastic IP アドレス](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)
+[1] [【公式】Elastic IP アドレス](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html)  
 [2] [AWS Elastic IPアドレス (EIP) とは何か？ 利用用途とメリットを解説](https://サーバー構築と設定.com/?p=2079)
