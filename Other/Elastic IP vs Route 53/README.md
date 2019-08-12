@@ -24,3 +24,14 @@ DNSサーバはRoute53 以外にも存在するが、AWSのサービスとの親
 ★参考文献  
 [3] [【公式】Amazon Route 53 とは](https://docs.aws.amazon.com/ja_jp/Route53/latest/DeveloperGuide/Welcome.html)  
 [4] [【公式】Amazon Route 53](https://aws.amazon.com/jp/route53/)
+
+## Route 53 の活用方法
+
+まずは独自ドメインを取得しておく（Route 53 内で用意しても、適当なレジストラで用意してもいい）。
+
+EC2インスタンスを起動するたびにドメインとパブリックIPの紐づけを再設定する。  
+ここらへんの自動化はどうとでもなる。
+
+★参考文献  
+[5] [はじめてのAmazon Route 53](https://qiita.com/Yuki_BB3/items/effdf1bb38263bfef82a)  
+[6] [Route53で取得したドメインをEC2インスタンスと紐付ける方法](https://qiita.com/masamitsu-konya/items/66ea89d8aa8e93127c7a)
