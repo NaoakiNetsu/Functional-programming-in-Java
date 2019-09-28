@@ -16,7 +16,7 @@
   - Promise: 【**新規**】非同期処理を上手く扱うためのAPI「Promise」についてのまとめ
 
 - Object-oriented programming
-  - Polymorphism: 【**新規**】ポリモーフィズムについてのまとめ
+  - Polymorphism: ポリモーフィズムについてのまとめ
   - Singleton: シングルトンパターンについてのまとめ
   
 - Other
