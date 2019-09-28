@@ -17,6 +17,7 @@
 
 - Object-oriented programming
   - Polymorphism: 【**新規**】ポリモーフィズムについてのまとめ
+  - Singleton: シングルトンパターンについてのまとめ
   
 - Other
   - VScode_markdown: markdownで議事録を取る際に使えるVScodeのコードスニペットについて
