@@ -104,7 +104,7 @@ DXを実現させたいけど老朽化したシステムが足枷に・・
 
 以下の図で、データHUBと連携するシステムの関係を簡単に示す。
 
-![データHUB概要図](https://github.com/NaoakiNetsu/In-house-study/issues/4#issuecomment-549876585)
+![データHUB概要図](https://user-images.githubusercontent.com/28583094/68221880-75e9b400-002d-11ea-9178-ed1bd8800bbb.png)
 
 ## 導入によって得られる効果
 ここまで説明したデータHUBを導入することで、
