@@ -3,7 +3,7 @@
 各ディレクトリのREADME.mdに内容をまとめていきます。
 
 - Angular
-  - Directive: 【**仕掛**】AngularJSのディレクティブについてのまとめ
+  - Directive: 【**凍結**】AngularJSのディレクティブについてのまとめ
   - Two-Way Data Binding：AngularJSの双方向データバインディングについてのまとめ
   
 - Design
@@ -20,8 +20,10 @@
   - Singleton: シングルトンパターンについてのまとめ
   
 - Other
+  - Elastic IP vs Route 53: Elastic IPをAmazon EC2インスタンスに関連付けず、Route 53を利用して独自ドメインを関連付けて利用するのはなぜか？
   - VScode_markdown: markdownで議事録を取る際に使えるVScodeのコードスニペットについて
   - Web Interface: クライアントとサーバの通信について
+  - webslides: ブラウザでプレゼンテーションを行うための雛型
   - 【Report】データHUB導入セミナー: データHUBセミナーの受講報告
   
 - Systems Architecture
